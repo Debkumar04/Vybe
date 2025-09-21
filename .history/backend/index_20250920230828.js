@@ -13,27 +13,10 @@ import { app, server } from "./socket.js"
 dotenv.config()
 
 const port=process.env.PORT || 5000
-const allowedOrigins = [
-  "http://localhost:5173", // local dev
-  "https://vybe-1kfx2vtf6-debkumar-shits-projects.vercel.app", // production
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // allow non-browser requests like Postman
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(
-          new Error("CORS policy: This origin is not allowed"),
-          false
-        );
-      }
-      return callback(null, true);
-    },
-    credentials: true,
-  })
-);
-
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}))
 app.use(express.json())
 app.use(cookieParser())
 
