@@ -15,7 +15,7 @@ dotenv.config()
 const port=process.env.PORT || 5000
 const allowedOrigins = [
   "http://localhost:5173", // local dev
-  "https://vybe-theta.vercel.app", // url change
+  "https://vybe-theta.vercel.app/", // production
 ];
 
 app.use(
